@@ -1,81 +1,294 @@
-©<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
-<head>    <meta charset="UTF-8">
+
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Importation de Véhicules - Émirats vers France</title>
-    <style>        body {
-            font-family: Arial, sans-serif;
+    <title>Emirates Auto Broker</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
             margin: 0;
-            padding: 0; 
-            background-color: #f4f4f4;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: url('europe.png') center/cover no-repeat fixed;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .overlay {
+            background: rgba(10, 10, 12, 0.85);
+            min-height: 100vh;
+        }
+
         header {
-            background-color: #333;     
-            color: white;
-            padding: 10px 0;
+            padding: 60px 20px;
             text-align: center;
         }
-        nav {         
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+        }
+
+        nav {
             display: flex;
+            align-items: center;
             justify-content: center;
-            background-color: #444;
-        }     
+            gap: 30px;
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+        }
+
+        nav img {
+            height: 40px;
+            margin-right: auto;
+            cursor: pointer;
+        }
+
         nav a {
-            color: white;
-            padding: 14px 20px;
+            color: #ccc;
             text-decoration: none;
-            text-align: center;
+            font-weight: 500;
+            transition: 0.3s;
         }
+
         nav a:hover {
-            background-color: #ddd;
-            color: black;
+            color: #ffffff;
         }
+
         .container {
-            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
         }
-        .services, .contact {
-            background-color: white;
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 5px;
+
+        section {
+            margin: 80px 0;
         }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;    
-            position: fixed;
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .card img {
             width: 100%;
-            bottom: 0;
-        }    </style>
-</head><body>
-    <header>
-        <h1>Importation de Véhicules - Émirats vers France</h1>
-    </header>
-    <nav>
-        <a href="#home">Accueil</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <div class="container">
-        <section id="home">
-            <h2>Bienvenue sur notre site d'importation de véhicules</h2>
-            <p>Nous sommes spécialisés dans l'importation de véhicules depuis les Émirats vers la France. Notre équipe expérimentée vous accompagne dans toutes les étapes du processus d'importation, de l'achat à la livraison.</p>
-        </section>
-        <section id="services" class="services">            <h2>Nos Services</h2>
-            <ul>                <li>Achat de véhicules aux Émirats</li>
-                <li>Transport et logistique</li>
-                <li>Assistance douanière</li>
-                <li>Service après-vente</li>            </ul>
-        </section>
-        <section id="contact" class="contact">
-            <h2>Contactez-nous</h2>
-            <p>Pour toute demande d'information ou pour un devis personnalisé, n'hésitez pas à nous contacter :</p>
-            <ul>
-                <li>Email: emiratesautobroker@hotmail.com</li>
-                <li>Téléphone: +33 6 12 34 56 78      </li>         </ul>   
-        </section>
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .process-step {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 0.95rem;
+        }
+
+        button {
+            padding: 14px 30px;
+            border-radius: 30px;
+            border: none;
+            background: white;
+            color: black;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #dcdcdc;
+        }
+
+        .services-text p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .contact-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 1400px;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #0a0a0a;
+            color: #777;
+        }
+
+        @media(max-width:900px) {
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width:600px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay">
+
+        <header>
+            <h1>Importation de Véhicules<br>Émirats → France</h1>
+        </header>
+
+        <nav>
+            <a href="#home"><img src="logo.png" alt="Logo Emirates Auto Broker"></a>
+            <a href="#vehicule">Véhicules</a>
+            <a href="#process">Process</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="container">
+
+            <section id="home">
+                <p style="max-width:600px; margin-bottom:25px;">
+                    Spécialiste de l’import automobile premium depuis les Émirats.
+                    Recherche, négociation, transport et immatriculation en France.
+                </p>
+                <button onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})">
+                    Demander un devis
+                </button>
+            </section>
+
+            <section id="vehicule">
+                <h2>Nos Véhicules</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <img src="classG.png">
+                        <h3>Mercedes-Benz G-Class (G63 AMG)</h3>
+                        <p>2019</p>
+                        <p>91 149km</p>
+                        <p>145k €   (prix indicatif)</p>
+                        <p>500hp</p>
+                        <p>boite automatique</p>
+                        <!--
+                            https://dubai.dubizzle.com/motors/used-cars/mercedes-benz/g-class/2026/1/13/2019-mercedes-g63-amg-12-months-blackline--2-304---1981b4ad5bb245808bc41a5dc16597bb/
+                            Prix achat UAE	≈ 98 000 €
+                            Transport maritime + assurance	≈ 4 000 €
+                            Douane 10% + TVA 20%	≈ 1,32× base (€126 000 + TV…)
+                            Homologation / conformité	≈ 3 000–5 000 €
+                            Total avant marge	≈ 140 000 €
+                        -->
+                    </div>
+                    <div class="card">
+                        <img src="car2.jpg">
+                        <h3>BMW X5 (G05 / F15 / F85)</h3>
+                        <p>année</p>
+                        <p>kilometrage</p>
+                        <p>prix</p>
+                        <p>HP</p>
+                    </div>
+                    <div class="card">
+                        <img src="car3.jpg">
+                        <h3>Toyota Land Cruiser (GX-R / 200 / 250)</h3>
+                        <p>année</p>
+                        <p>kilometrage</p>
+                        <p>prix</p>
+                        <p>HP</p>
+                    </div>
+                </div>
+                <br>
+                <p style="font-size:0.8em;">Les prix affichés sont des estimations basées sur les conditions de marché actuelles. Un devis personnalisé est établi après validation du véhicule et des paramètres d’importation.</p>
+            </section>
+
+            <section id="process">
+                <h2>Notre Process</h2>
+                <div class="process-grid">
+                    <div class="process-step"><strong>1. Brief</strong><br>Définition précise du modèle et budget.</div>
+                    <div class="process-step"><strong>2. Sourcing</strong><br>Recherche et vérification complète.</div>
+                    <div class="process-step"><strong>3. Négociation</strong><br>Meilleur prix via notre réseau.</div>
+                    <div class="process-step"><strong>4. Contrat</strong><br>Signature & commission transparente.</div>
+                    <div class="process-step"><strong>5. Logistique</strong><br>Transport & formalités douanières.</div>
+                    <div class="process-step"><strong>6. Livraison</strong><br>Véhicule prêt à rouler en France.</div>
+                </div>
+            </section>
+
+            <section id="services">
+                <h2>Nos Services</h2>
+                <div class="services-text">
+                    <p>Achat & conseil </p>
+                    <p>Inspection & historique complet</p>
+                    <p>Gestion administrative</p>
+                    <p>Gestion douanière & immatriculation sur mesure</p>
+                </div>
+            </section>
+
+            <section id="form">
+                <h2>Demande sur mesure</h2>
+
+                <!-- REMPLACE LE LIEN CI-DESSOUS PAR TON GOOGLE FORM EMBED -->
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSciVgySZmcOswgeaSZ-NQ5n1G8ORhj6ZcEZsv2gMDFdihE8wQ/viewform?usp=dialog"
+                    height="800">
+                    Chargement…
+                </iframe>
+
+            </section>
+
+            <section id="contact">
+                <h2>Contact</h2>
+                <div class="contact-box">
+                    emiratesautobroker@hotmail.com
+                </div>
+            </section>
+
+        </div>
+
+        <footer>
+            © 2026 Emirates Auto Broker — Tous droits réservés
+        </footer>
+
     </div>
-    <footer>        <p>&copy; 2024 Importation de Véhicules - Émirats vers France. Tous droits réservés.</p>
-    </footer></body>
+</body>
+
 </html>
